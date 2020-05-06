@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+</head>
+
+<body onload="onLoad()" style="margin: 0; width: 100%; height: 100%; background-color: #333333;">
+    <h1 style="color: white; text-align: center; margin: 0; margin-top: 20px;">TETRIS</h1>
+    <canvas id="game" width="218" height="438"
+        style="position: absolute; left: 50%; transform: translate(-50%, 0); outline: 10px gray solid; margin-top: 20px;"></canvas>
+    <div style="position: fixed; color: white; left: 50px; font-size: 25px">
+        <div id="tpsDiv">
+            <i style="top: 50px;">TPS:</i>
+            <p id="tps" style="display: inline;">0</p><br>
+        </div>
+        <i style="border-top: 20px;">Level:</i>
+        <p id="level" style="display: inline;">1</p><br>
+        <i style="border-top: 20px;">Lines:</i>
+        <p id="lines" style="display: inline;">0</p>
+    </div>
+    <div id="gameOverOverlay" onclick="restart()" style="display: none;">
+        <div
+            style="position: fixed; width: 100%; height: 100%; top: 0; background-color: black; z-index: 4; opacity: 70%;">
+        </div>
+        <h1
+            style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; z-index: 5; font-size: 100px; margin: 0;">
+            GAME OVER</h1>
+    </div>
+    <div id="settings" style="float: right; height: 100%; margin-right: 50px; font-size: 25px; color: white;">
+        <input id="soundOnCheckbox" style="display: inline;" type="checkbox" checked>
+        <p style="display: inline;">audio</p><br>
+        <input id="renderRotationPointCheckbox" style="display: inline;" type="checkbox">
+        <p style="display: inline;">Render Rotationpoint</p><br>
+        <input checked id="showTpsCheckbox" style="display: inline;" type="checkbox" onchange="onShowTpsChange()">
+        <p style="display: inline;">Show TPS</p><br>
+    </div>
+
+    <audio id="impactSound" preload="auto" src="./sounds/impactSound.mp3"></audio>
+    <button style="display: none;" id="impactSoundButton"
+        onclick="document.getElementById('impactSound').play()"></button>
+
+    <script src="levelManager.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
