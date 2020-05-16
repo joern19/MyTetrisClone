@@ -1,5 +1,5 @@
 #include <iostream>
-#include "cmake-build-debug/CMakeFiles/Tetris.h"
+#include "Tetris.h"
 
 int main() {
     std::cout << "Hello world!" << std::endl;
